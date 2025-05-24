@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = es>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Formulario 1</title>
+    </head>
+
+    <body>
+        <h1>Formulario 1</h1>
+        <h2>Formulario de Registro</h2>
+        <form action"registro.php" method="get">
+            <table>
+                
+                <tr>
+                    <td><label for="nombre">Nombre</labe></td>
+                    <td>
+                        <input type="text" name="nombre" maxlength="50">
+                    </td>
+                </tr>
+                <td><label for="apellidos">Apellidos</label></td>
+                    <td><input type="text" name="apellidos" maxlength="50"></td>
+                <tr>
+                    <td><label for="sexo">Sexo</label></td>
+                    <td>
+                        <input type="radio" name="sexo" >Hombre
+                        <input type="radio" name="sexo" >Mujer
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="correoElectronico">Correo Electronico</label></td>
+                    <td>
+                        <input type="email"  name="email" maxlegth="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Población</td>
+                    <td>
+                      
+                        <select id="poblacion" name="poblacion">
+                            <option value="alicante">Alicante</option>
+                            <option value="madrid">Madrid</option>
+                            <option value="valencia">Valencia</option>
+                            <option value="sevilla">Sevilla</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="descripcion">Descripción</label><br/>
+                        <textarea rows="5" cols="50"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Enviar" aligncenter></td> 
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

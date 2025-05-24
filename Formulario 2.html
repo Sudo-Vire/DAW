@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang = es>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Formulario 2</title>
+    </head>
+
+    <body>
+        <h1>Formulario 2</h1>
+        <form action"registro.php" method="get">
+                <table>
+                    <tr>
+                        <td><label for = "nombre">Nombre</label></td>
+                        <td><input type="text" maxlength="50" ></td>
+                    </tr>
+                    <tr>
+                        <td><label for = "correoElectronico">Correo electrónico</label></td>
+                        <td><input type="email"  name="email" maxlength="50" ></td> 
+                    </tr>
+                    <tr>
+                        <td><label for="url">URL</label></td>
+                        <td><input type="url" name="url" placeholder="Escribe tu URL."></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fecha">Fecha</label></td>
+                        <td><input type="date" name="fecha"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="hora">Hora</label></td>
+                        <td><input type="time" name="hora"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mes">Mes</label></td>
+                        <td><input type="month" name="mes"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="semana">Semana</label></td>
+                        <td><input type="week" name="semana"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="numFav">Número Favorito</label></td>
+                        <td><input type="number" name="numFav" min="1" max="10"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="telefono">Teléfono</label></td>
+                        <td><input type="tel" name="telefono" pattern="[0-9]{9}" placeholder="Ejemplo: 666 44 55 33"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="busqueda">Término de busqueda</label></td>
+                        <td><input type="search" name="busqueda"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="colorfav">Color Favorito</label></td>
+                        <td><input type="color" name="colorfav"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Enviar"></td>
+                    </tr>
+                </table>
+        </form>
+    </body>
+</html>
