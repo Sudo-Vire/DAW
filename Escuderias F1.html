@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Escuderías F1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            background-image: url('img/F1.jpg');
+            background-size: cover; 
+            background-position: center; 
+            color: #ffffff; 
+            font-family: 'high speed'; 
+            src: url('highspeed.ttf');
+        }
+    
+        .header {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+        }
+    
+        .row > a {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+            margin: 5px; 
+            width: 24%; 
+        }
+
+        .row img {
+            width: 100%;
+            height: 95%; 
+            border: 1px solid #333;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .row img:hover {
+            border-radius: 15%;
+        }
+    
+        @media (min-width: 1401px) {
+            .row > a {
+                flex: 19%; 
+                max-width: 19%;
+            }
+        }
+        @media (min-width: 1201px) and (max-width: 1400px) {
+            .row > a {
+                flex: 24%;
+                max-width: 24%;
+            }
+        }
+        @media (min-width: 1026px) and (max-width: 1200px) {
+            .row > a {
+                flex: 32%; 
+                max-width: 32%;
+            }
+        }
+        @media (min-width: 676px) and (max-width: 1025px) {
+            .row > a {
+                flex: 48%;
+                max-width: 48%;
+            }
+        }
+        @media (max-width: 675px) {
+            .row > a {
+                flex: 95%; 
+                max-width: 95%;
+            }
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+    
+        .modal:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    
+        .contenido {
+            display: flex;
+            width: 75%;
+            max-height: 75%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+    
+        .contenido img {
+            width: 50%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    
+        .constructores {
+            width: 50%;
+            padding: 10px;
+            text-align: left;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center;
+        }
+
+        .mercedes {
+            background-color: #ffffff;
+            color: rgb(20, 175, 175);
+        }
+        .cmercedes {
+            color: rgba(0, 0, 0);
+        }
+        .cmercedes:hover {
+            color: rgb(20, 175, 175);
+            transform: scale(1.20);
+        }
+
+        .redbull {
+            background-color: rgb(5, 25, 45);
+            color: rgb(215, 15, 30);
+        }
+        .credbull {
+            color: rgba(250, 215, 0);
+        }
+        .credbull:hover {
+            color: rgb(215, 15, 30);
+            transform: scale(1.20);
+        }
+
+         .ferrari {
+            background-color: rgb(230, 5, 50);
+            color: rgb(250, 230, 5);
+        }
+        .cferrari {
+            color: rgba(250, 230, 5);
+        }
+        .cferrari:hover {
+            color: rgb(65, 115, 65);
+            transform: scale(1.20);
+        }
+
+        .mclaren {
+            background-color: rgb(255, 255, 255);
+            color: rgb(255, 125, 0);
+        }
+        .cmclaren {
+            color: rgb(0, 0, 0);
+        }
+        .cmclaren:hover {
+            color: rgb(255, 125, 0);
+            transform: scale(1.20);
+        }
+
+        .alpine {
+            background-color: rgb(10, 23, 39);
+            color: rgb(255, 255, 255);
+        }
+        .calpine {
+            color: rgb(0, 90, 170);
+        }
+        .calpine:hover {
+            color: rgb(255, 255, 255);
+            transform: scale(1.20);
+        }
+
+        .astonmartin {  
+            background-color: rgb(0, 90, 80);
+            color: rgb(180, 215, 55);
+        }
+        .castonmartin {
+            color: rgb(180, 215, 55);
+        }
+        .castonmartin:hover {
+            color: rgb(255, 255, 255);
+            transform: scale(1.20);
+        }
+
+        .rb {
+            background-color: rgb(25, 50, 205);
+            color: rgb(255, 255, 255);
+        }
+        .crb {
+            color: rgb(255, 255, 255);
+        }
+        .crb:hover {
+            color: rgb(0, 215, 50);
+            transform: scale(1.20);
+        }
+
+        .stake {
+            background-color: rgb(0, 200, 110);
+            color: rgb(0, 0, 0);
+        }
+        .cstake {
+            color: rgb(255, 255, 255);
+        }
+        .cstake:hover {
+            color: rgb(0, 200, 110);
+            transform: scale(1.20);
+        }
+
+        .haas {
+            background-color: rgb(255, 255, 255);
+            color: rgb(235, 25, 60);
+        }
+        .chaas {
+            color: rgb(0, 0, 0);
+        }
+        .chaas:hover {
+            color: rgb(235, 25, 60);
+            transform: scale(1.20);
+        }
+
+        .williams {
+            background-color: rgb(5, 35, 75);
+            color: rgb(255, 255, 255);
+        }
+        .cwilliams {
+            color: rgb(0, 160, 225);
+        }
+        .cwilliams:hover {
+            color: rgb(255, 255, 255);
+            transform: scale(1.20);
+        }
+    
+        .cerrar {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            text-decoration: none;
+            font-size: 25px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .constructores h2 {
+            font-size: 24px; 
+        }
+        .constructores p {
+            font-size: 16px;
+        }
+
+        @media (max-width: 1575px) {
+            .constructores h2 {
+                font-size: 22px; 
+            }
+            .constructores p {
+                font-size: 15px; 
+            }
+        }
+        @media (max-width: 1500px) {
+            .constructores h2 {
+                font-size: 20px; 
+            }
+            .constructores p {
+                font-size: 13px; 
+            }
+        }
+        @media (max-width: 1400px) {
+            .constructores h2 {
+                font-size: 20px; 
+            }
+            .constructores p {
+                font-size: 12px; 
+            }
+        }
+        @media (max-width: 1300px) {
+            .constructores h2 {
+                font-size: 19px; 
+            }
+            .constructores p {
+                font-size: 11px; 
+            }
+        }
+        @media (max-width: 1235px) {
+            .constructores h2 {
+                font-size: 18px; 
+            }
+            .constructores p {
+                font-size: 10px; 
+            }
+        }
+        @media (max-width: 1150px) {
+            .constructores h2 {
+                font-size: 17px; 
+            }
+            .constructores p {
+                font-size: 9px; 
+            }
+        }
+        @media (max-width: 1075px) {
+            .constructores h2 {
+                font-size: 15px; 
+            }
+            .constructores p {
+                font-size: 9px; 
+            }
+        }
+        @media (max-width: 995px) {
+            .constructores h2 {
+                font-size: 15px; 
+            }
+            .constructores p {
+                font-size: 8px; 
+            }
+        }
+        @media (max-width: 940px) {
+            .constructores h2 {
+                font-size: 14px; 
+            }
+            .constructores p {
+                font-size: 7px; 
+            }
+        }
+        @media (max-width: 900px) {
+            .constructores h2 {
+                font-size: 10px; 
+            }
+            .constructores p {
+                font-size: 7px; 
+            }
+        }
+        @media (max-width: 825px) {
+            .constructores h2 {
+                font-size: 12px; 
+            }
+            .constructores p {
+                font-size: 6px; 
+            }
+        }
+        @media (max-width: 750px) {
+            .constructores h2 {
+                font-size: 12px; 
+            }
+            .constructores p {
+                font-size: 6px; 
+            }
+        }
+        @media (max-width: 705px) {
+            .constructores h2 {
+                font-size: 11px; 
+            }
+            .constructores p {
+                font-size: 5px; 
+            }
+        }
+        @media (max-width: 645px) {
+            .constructores h2 {
+                font-size: 11px; 
+            }
+            .constructores p {
+                font-size: 4px; 
+            }
+        }
+        @media (max-width: 590px) {
+            .constructores h2 {
+                font-size: 9px; 
+            }
+            .constructores p {
+                font-size: 4px; 
+            }
+        }
+        @media (max-width: 555px) {
+            .constructores h2 {
+                font-size: 6px; 
+            }
+            .constructores p {
+                font-size: 4px; 
+            }
+        }
+        @media (max-width: 490px) {
+            .constructores h2 {
+                font-size: 6px; 
+            }
+            .constructores p {
+                font-size: 3px; 
+            }
+        }
+        @media (max-width: 455px) {
+            .constructores h2 {
+                font-size: 4px; 
+            }
+            .constructores p {
+                font-size: 3px; 
+            }
+        }
+        @media (max-width: 420px) {
+            .constructores h2 {
+                font-size: 4px; 
+            }
+            .constructores p {
+                font-size: 2px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Escuderías de F1</h1>
+    </div>
+    
+    <div class="row">
+            <a href="#img1"><img src="img/mercedes.jpg" alt="Mercedes"></a>
+            <a href="#img2"><img src="img/redbull.jpg" alt="Red Bull Racing"></a>
+            <a href="#img3"><img src="img/ferrari.jpg" alt="Ferrari"></a>
+            <a href="#img4"><img src="img/mclaren.jpg" alt="McLaren"></a>
+            <a href="#img5"><img src="img/alpine.jpg" alt="Alpine"></a>
+            <a href="#img6"><img src="img/astonmartin.jpg" alt="Aston Martin"></a>
+            <a href="#img7"><img src="img/rb.jpg" alt="AlphaTauri"></a>
+            <a href="#img8"><img src="img/stake.jpg" alt="Alfa Romeo"></a>
+            <a href="#img9"><img src="img/haas.jpg" alt="Haas"></a>
+            <a href="#img10"><img src="img/williams.jpg" alt="Williams"></a>
+    </div>
+
+    <div id="img1" class="modal">
+        <div class="contenido">
+            <a href="#" class="cerrar cmercedes">&times;</a>
+            <div class="constructores mercedes">
+                <h2>Mercedes</h2>
+                <p><strong>Jefe de Equipo:</strong> Toto Wolff</p>
+                <p><strong>Jefe Técnico:</strong> James Allison</p>
+                <p><strong>Ingeniero Jefe:</strong> Andrew Shovlin</p>
+                <p><strong>Pilotos:</strong> Lewis Hamilton, George Russell</p>
+            </div>
+            <img src="img/mercedes.jpg" alt="Mercedes">
+        </div>
+    </div>
+    <div id="img2" class="modal">
+        <div class="contenido">
+            <a href="#" class="cerrar credbull">&times;</a>
+            <div class="constructores redbull">
+                <h2>Red Bull Racing</h2>
+                <p><strong>Jefe de Equipo:</strong> Christian Horner</p>
+                <p><strong>Jefe Técnico:</strong> Pierre Wache</p>
+                <p><strong>Ingeniero Jefe:</strong> Adrian Newey</p>
+                <p><strong>Pilotos:</strong> Max Verstappen, Sergio Pérez</p>
+            </div>
+            <img src="img/redbull.jpg" alt="Red Bull Racing">
+        </div>
+    </div>
+    <div id="img3" class="modal">
+        <div class="contenido">
+            <a href="#" class="cerrar cferrari">&times;</a>
+            <div class="constructores ferrari">
+                <h2>Ferrari</h2>
+                <p><strong>Jefe de Equipo:</strong> Fred Vasseur</p>
+                <p><strong>Jefe Técnico:</strong> Enrico Cardile</p>
+                <p><strong>Ingeniero Jefe:</strong> Laurent Mekies</p>
+                <p><strong>Pilotos:</strong> Charles Leclerc, Carlos Sainz</p>
+            </div>
+            <img src="img/ferrari.jpg" alt="Ferrari">
+        </div>
+    </div>
+    <div id="img4" class="modal">
+        <div class="contenido">
+            <a href="#" class="cerrar cmclaren">&times;</a>
+            <div class="constructores mclaren">
+                <h2>McLaren</h2>
+                <p><strong>Jefe de Equipo:</strong> Andrea Stella</p>
+                <p><strong>Jefe Técnico:</strong> James Key</p>
+                <p><strong>Ingeniero Jefe:</strong> Neil Houldey</p>
+                <p><strong>Pilotos:</strong> Lando Norris, Oscar Piastri</p>
+            </div>
+            <img src="img/mclaren.jpg" alt="McLaren">
+        </div>
+    </div>
+    <div id="img5" class="modal">
+        <div class="contenido">
+            <a href="#" class="cerrar calpine">&times;</a>
+            <div class="constructores alpine">
+                <h2>Alpine</h2>
+                <p><strong>Jefe de Equipo:</strong> Laurent Rossi</p>
+                <p><strong>Jefe Técnico:</strong> Pat Fry</p>
+                <p><strong>Ingeniero Jefe:</strong> Matt Harman</p>
+                <p><strong>Pilotos:</strong> Esteban Ocon, Pierre Gasly</p>
+            </div>
+            <img src="img/alpine.jpg" alt="Alpine">
+        </div>
+    </div>
+    <div id="img6" class="modal">
+        <div class="contenido">
+            <a href="#" class="cerrar castonmartin">&times;</a>
+            <div class="constructores astonmartin">
+                <h2>Aston Martin</h2>
+                <p><strong>Jefe de Equipo:</strong> Mike Krack</p>
+                <p><strong>Jefe Técnico:</strong> Andrew Green</p>
+                <p><strong>Ingeniero Jefe:</strong> Eric Blandin</p>
+                <p><strong>Pilotos:</strong> Fernando Alonso, Lance Stroll</p>
+            </div>
+            <img src="img/astonmartin.jpg" alt="Aston Martin">
+        </div>
+    </div>
+    <div id="img7" class="modal">
+        <div class="contenido">
+            <a href="#" class="cerrar crb">&times;</a>
+            <div class="constructores rb">
+                <h2>Visa Cashapp RB</h2>
+                <p><strong>Jefe de Equipo:</strong> Franz Tost</p>
+                <p><strong>Jefe Técnico:</strong> Jody Egginton</p>
+                <p><strong>Ingeniero Jefe:</strong> Jonathan Eddolls</p>
+                <p><strong>Pilotos:</strong> Yuki Tsunoda, Nyck de Vries</p>
+            </div>
+            <img src="img/rb.jpg" alt="Visa Cashapp RB">
+        </div>
+    </div>
+    <div id="img8" class="modal">
+        <div class="contenido">
+            <a href="#" class="cerrar cstake">&times;</a>
+            <div class="constructores stake">
+                <h2>Stake</h2>
+                <p><strong>Jefe de Equipo:</strong> Alessandro Alunni Bravi</p>
+                <p><strong>Jefe Técnico:</strong> Jan Monchaux</p>
+                <p><strong>Ingeniero Jefe:</strong> Benotto</p>
+                <p><strong>Pilotos:</strong> Valtteri Bottas, Zhou Guanyu</p>
+            </div>
+            <img src="img/stake.jpg" alt="stake">
+        </div>
+    </div>
+    <div id="img9" class="modal">
+        <div class="contenido">
+            <a href="#" class="cerrar chaas">&times;</a>
+            <div class="constructores haas">
+                <h2>Haas</h2>
+                <p><strong>Jefe de Equipo:</strong> Guenther Steiner</p>
+                <p><strong>Jefe Técnico:</strong> Simone Resta</p>
+                <p><strong>Ingeniero Jefe:</strong> Ayao Komatsu</p>
+                <p><strong>Pilotos:</strong> Kevin Magnussen, Nico Hülkenberg</p>
+            </div>
+            <img src="img/haas.jpg" alt="Haas">
+        </div>
+    </div>
+    <div id="img10" class="modal">
+        <div class="contenido">
+            <a href="#" class="cerrar cwilliams">&times;</a>
+            <div class="constructores williams">
+                <h2>Williams</h2>
+                <p><strong>Jefe de Equipo:</strong> James Vowles</p>
+                <p><strong>Jefe Técnico:</strong> François-Xavier Demaison</p>
+                <p><strong>Ingeniero Jefe:</strong> Ed Wood</p>
+                <p><strong>Pilotos:</strong> Alexander Albon, Logan Sargeant</p>
+            </div>
+            <img src="img/williams.jpg" alt="Williams">
+        </div>
+    </div>
+</body>
+</html>

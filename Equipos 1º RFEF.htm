@@ -1,0 +1,338 @@
+     <!DOCTYPE html>
+     <html lang="es">
+     <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Equipos de Primera División - Temporada 2024</title>
+     <style>
+          * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+          }
+
+          body {
+               font-family: Arial, sans-serif;
+               line-height: 1.6;
+               color: #333;
+               display: flex;
+               flex-direction: column;
+               min-height: 100vh;
+          }
+
+          .header {
+               background: #2D9CDB;
+               color: #fff;
+               padding: 1rem 0;
+               text-align: center;
+          }
+
+          .header h1 {
+               font-size: 1.8em;
+          }
+
+          .nav-list {
+               display: flex;
+               justify-content: center;
+               list-style-type: none;
+               margin-top: 1rem;
+          }
+
+          .nav-list li {
+               margin: 0 1rem;
+          }
+
+          .nav-list a {
+               color: #fff;
+               text-decoration: none;
+          }
+
+          .intro {
+               padding: 2rem;
+               background: #f2f2f2;
+               text-align: center;
+          }
+
+          .teams {
+               padding: 2rem;
+               flex-grow: 1;
+          }
+
+          .team-list {
+               display: grid;
+               grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+               gap: 1.5rem;
+          }
+
+          .team {
+               border: 1px solid #ddd;
+               padding: 1rem;
+               border-radius: 5px;
+               background: #fff;
+               display: flex;
+               align-items: center;
+               gap: 1rem;
+          }
+
+          .team h3 {
+               color: #2D9CDB;
+               margin-bottom: 0.5rem;
+          }
+
+          .team-content {
+               flex: 1;
+               text-align: center;
+          }
+
+          .team img {
+               max-width: 100px;
+               height: 80px;
+               object-fit: cover;
+               border-radius: 5px;
+          }
+
+          .footer {
+               text-align: center;
+               padding: 1rem;
+               background: #333;
+               color: #fff;
+               margin-top: auto;
+          }
+     </style>
+     </head>
+     <body>
+     <header class="header">
+          <h1>Equipos 1º División - Temporada 24/25</h1>
+     </header>
+
+     <section id="equipos" class="teams">
+          <div class="team-list">
+               <article class="team">
+                    <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/3QGN2F5X3RLDHJGE3XZIEE5RTE.jpg" alt="Escudo Real Madrid">
+                    <div class="team-content">
+                         <h3>Real Madrid</h3>
+                         <p><strong>Estadio:</strong> Santiago Bernabéu</p>
+                         <p><strong>Entrenador:</strong> Carlo Ancelotti</p>
+                         <p><strong>Fundación:</strong> 1902</p>
+                    </div>
+                    <img src="https://images.adsttc.com/media/images/6526/e5c2/64e5/0c5f/47f3/0877/newsletter/l35-architects-sobre-la-remodelacion-del-estadio-santiago-bernabeu-de-madrid-a-pocos-meses-de-finalizar_16.jpg?1697048007" alt="Estadio Santiago Bernabéu">
+               </article>
+
+               <article class="team">
+                    <img src="https://static.wixstatic.com/media/e75ff1_aa2ac8e03afa43b7ae6334baa5b18e12~mv2.png/v1/fill/w_520,h_532,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e75ff1_aa2ac8e03afa43b7ae6334baa5b18e12~mv2.png" alt="Escudo Barcelona">
+                    <div class="team-content">
+                         <h3>Barcelona</h3>
+                         <p><strong>Estadio:</strong> Spotify Camp Nou</p>
+                         <p><strong>Entrenador:</strong> Xavi Hernández</p>
+                         <p><strong>Fundación:</strong> 1899</p>
+                    </div>
+                    <img src="https://livesport-ott-images.ssl.cdn.cra.cz/r1200xfq60/46d03e3d-e39f-4a38-b901-378fda3cc91b.jpeg" alt="Estadio Spotify Camp Nou">
+               </article>
+
+               <article class="team">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBnp7tU3dsVbc-9wpHFh4NUjGxL-IWCQw11g&s" alt="Escudo Atlético de Madrid">
+                    <div class="team-content">
+                         <h3>Atlético de Madrid</h3>
+                         <p><strong>Estadio:</strong> Wanda Metropolitano</p>
+                         <p><strong>Entrenador:</strong> Diego Simeone</p>
+                         <p><strong>Fundación:</strong> 1903</p>
+                    </div>
+                    <img src="https://phantom-expansion.unidadeditorial.es/80012b0e706f5f515f2f14935f8aaabe/crop/276x273/1914x1365/resize/1200/f/webp/assets/multimedia/imagenes/2024/10/23/17296887681500.jpg" alt="Estadio Wanda Metropolitano">
+               </article>
+
+               <article class="team">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8INA3O0myuI3Rv1PSwSjeb6pTN6uZJvx7fA&s" alt="Escudo Athletic Club">
+                    <div class="team-content">
+                         <h3>Athletic Club</h3>
+                         <p><strong>Estadio:</strong> San Mamés</p>
+                         <p><strong>Entrenador:</strong> Ernesto Valverde</p>
+                         <p><strong>Fundación:</strong> 1898</p>
+                    </div>
+                    <img src="https://www.idom.com/wp-content/uploads/2019/02/San_Mames_Stadium_01_Architecture_IDOM_photo_Aitor_Ortiz.jpg" alt="Estadio San Mamés">
+               </article>
+
+               <article class="team">
+                    <img src="https://lh6.googleusercontent.com/proxy/sa_SNIRXZFGoUjoNneAg43PTTHfArkkIpAbMta2ooVpfXRzx7QZGg9jRp-pkgLQoZalGxoIRwPxk4Z5CVenQVegKUpFGZAHdd2C_B-tGvjh5KQKfeVO-3DDr1-8bhzWh0J4Uqte5x4nOqdJ1zYNY_aAijQNi10mR4_ZFbQ" alt="Escudo Villarreal">
+                    <div class="team-content">
+                         <h3>Villarreal C.F.</h3>
+                         <p><strong>Estadio:</strong> Estadio de la Cerámica</p>
+                         <p><strong>Entrenador:</strong> Quique Setién</p>
+                         <p><strong>Fundación:</strong> 1923</p>
+                    </div>
+                    <img src="https://villarrealcf.es/wp-content/uploads/2024/04/20240318-EstadioLaCeramicaAereas-011.jpg" alt="Estadio de la Cerámica">
+               </article>
+
+               <article class="team">
+                    <img src="https://cdn.resfu.com/img_data/equipos/22233.png?dpr=2.5&size=120x&lossy=1&v=46" alt="Escudo Real Betis">
+                    <div class="team-content">
+                         <h3>Real Betis</h3>
+                         <p><strong>Estadio:</strong> Benito Villamarín</p>
+                         <p><strong>Entrenador:</strong> Manuel Pellegrini</p>
+                         <p><strong>Fundación:</strong> 1907</p>
+                    </div>
+                    <img src="https://pmlagranfamilia.com/wp-content/uploads/2018/02/Benito-Villamar%C3%ADn-1.jpg" alt="Estadio Benito Villamarín">
+               </article>
+
+               <article class="team">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Escudo_RC_Celta_de_Vigo.svg" alt="Escudo Celta de Vigo">
+                    <div class="team-content">
+                         <h3>Celta de Vigo</h3>
+                         <p><strong>Estadio:</strong> Balaídos</p>
+                         <p><strong>Entrenador:</strong> Rafa Benítez</p>
+                         <p><strong>Fundación:</strong> 1923</p>
+                    </div>
+                    <img src="https://s1.elespanol.com/2024/12/02/treintayseis/deporte/celta-de-vigo/905669952_251362089_1706x1280.jpg" alt="Estadio Balaídos">
+               </article>
+
+               <article class="team">
+               <img src="https://as01.epimg.net/img/comunes/fotos/fichas/equipos/large/2.png" alt="Escudo Rayo Vallecano">
+               <div class="team-content">
+                    <h3>Rayo Vallecano</h3>
+                    <p><strong>Estadio:</strong> Vallecas</p>
+                    <p><strong>Entrenador:</strong> Iñigo Pérez</p>
+                    <p><strong>Fundación:</strong> 1924</p>
+               </div>
+               <img src="https://statics-maker.llt-services.com/ray/images/2023/02/15/xlarge/15056a42-b8c8-4f10-8ab7-e4165298839a.jpg" alt="Estadio Vallecas">
+               </article>
+
+               <article class="team">
+                    <img src="https://lh5.googleusercontent.com/proxy/kbMHZExdLqHtyRPhztMx0vXH8fE8YRtWvxCIWT7Nvqat9ycuu7gC9-FwcNVV14SGqlYMVBe4dxaDr4Y4L5Vmts3Q_KqV_SqDmTmbDnCQN1bZdVFgoFvFGaK0Wj6ghjD_43v_vEQ9luT5tAbPOTnS" alt="Escudo Osasuna">
+                    <div class="team-content">
+                         <h3>CA Osasuna</h3>
+                         <p><strong>Estadio:</strong> El Sadar</p>
+                         <p><strong>Entrenador:</strong> Vicente Moreno</p>
+                         <p><strong>Fundación:</strong> 1920</p>
+                    </div>
+                    <img src="https://assets.laliga.com/assets/2021/02/17/xlarge/df97d297b25655de40939a334ac4f433.jpeg" alt="Estadio El Sadar">
+               </article>
+
+               <article class="team">
+                    <img src="https://lh4.googleusercontent.com/proxy/sVQ2aoWkRiEKRS5z9eaqydLuqsctwDQnxZlJ6VbRLfhsuSNlstkphTHwtZRnvr8Ma7ntXCoIummJMonBS4XM6CGfzPVx7obxJn-0CCMAynT35vcPvPabFkEOpVd482DyyzkP34MxQzjpt348uNG8WxrzjqK9Hwoi" alt="Escudo Mallorca">
+                    <div class="team-content">
+                         <h3>R.C.D. Mallorca</h3>
+                         <p><strong>Estadio:</strong> Son Moix</p>
+                         <p><strong>Entrenador:</strong> Javier Aguirre</p>
+                         <p><strong>Fundación:</strong> 1916</p>
+                    </div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSScDGP9TuTUkUiDkdj262VZvZiPNQFDz_FAw&s" alt="Estadio Son Moix">
+               </article>
+
+               <article class="team">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk3P_7afB1AL0B71ub-O6NzyHMDljlvX8b1A&s" alt="Escudo Real Sociedad">
+                    <div class="team-content">
+                         <h3>Real Sociedad</h3>
+                         <p><strong>Estadio:</strong> Reale Arena</p>
+                         <p><strong>Entrenador:</strong> Imanol Alguacil</p>
+                         <p><strong>Fundación:</strong> 1909</p>
+                    </div>
+                    <img src="https://www.mundodeportivo.com/palco23/files/2021/17_clubes/real-sociedad/anoeta-980.png" alt="Estadio Reale Arena">
+               </article>
+
+               <article class="team">
+                    <img src="https://i.pinimg.com/736x/89/53/f5/8953f5f6d817986b8e99abfe64068c7e.jpg" alt="Escudo Valencia">
+                    <div class="team-content">
+                         <h3>Valencia CF</h3>
+                         <p><strong>Estadio:</strong> Mestalla</p>
+                         <p><strong>Entrenador:</strong> Rubén Baraja</p>
+                         <p><strong>Fundación:</strong> 1919</p>
+                    </div>
+                    <img src="https://s2.ppllstatics.com/lasprovincias/www/multimedia/2024/02/11/Imagen%20mestalla-khME-U2101502407835ejE-1200x840@Las%20Provincias-LasProvincias.jpg" alt="Estadio Mestalla">
+               </article>
+
+               <article class="team">
+                    <img src="https://lh5.googleusercontent.com/proxy/HcuXXM_6RoV5cOxsPIbPovc13qeBGUha8GRNd3yHCuQdNJbwOSTA0jwdpfb0E_SClqQWVM0euGAJS8PoKDjH3fBZMBMxMAE8z68KebdEulkQCimnnOniaYrc7sa3TejtpUEt8IPKeDaEnkZwKI9-7gFD0WclHw" alt="Escudo Getafe">
+                    <div class="team-content">
+                         <h3>Getafe CF</h3>
+                         <p><strong>Estadio:</strong> Coliseum Alfonso Pérez</p>
+                         <p><strong>Entrenador:</strong> José Bordalás</p>
+                         <p><strong>Fundación:</strong> 1983</p>
+                    </div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCnuXBHbRwgM2Af46pOpDGJ5QgCrmXQyEjPA&s" alt="Estadio Coliseum Alfonso Pérez">
+               </article>
+
+               <article class="team">
+                    <img src="https://media.eitb.eus/multimedia/images/2020/07/28/2636117/20200728195827_alaves-escudo-centenario_amp_w1200.jpg" alt="Escudo Alavés">
+                    <div class="team-content">
+                         <h3>Alavés</h3>
+                         <p><strong>Estadio:</strong> Mendizorroza</p>
+                         <p><strong>Entrenador:</strong> Luis García Plaza</p>
+                         <p><strong>Fundación:</strong> 1921</p>
+                    </div>
+                    <img src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2019/07/25/15640605525976.jpg" alt="Estadio Mendizorroza">
+               </article>
+
+               <article class="team">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB3pGn7iu--DxmsEC40FIZ068_rB3r0PFgUA&s" alt="Escudo Girona">
+                    <div class="team-content">
+                         <h3>Girona FC</h3>
+                         <p><strong>Estadio:</strong> Montilivi</p>
+                         <p><strong>Entrenador:</strong> Míchel Sánchez</p>
+                         <p><strong>Fundación:</strong> 1930</p>
+                    </div>
+                    <img src="https://estaticos-cdn.prensaiberica.es/clip/897179c8-c298-4b76-993b-1a0396263611_source-aspect-ratio_default_0.jpg" alt="Estadio Montilivi">
+               </article>
+
+               <article class="team">
+                    <img src="https://www.estadiodeportivo.com/elementosWeb/gestionCajas/EDE/Image/escudo-sevilla.jpg" alt="Escudo Sevilla">
+                    <div class="team-content">
+                         <h3>Sevilla</h3>
+                         <p><strong>Estadio:</strong> Ramón Sánchez-Pizjuán</p>
+                         <p><strong>Entrenador:</strong> José Luis Mendilibar</p>
+                         <p><strong>Fundación:</strong> 1890</p>
+                    </div>
+                    <img src="https://i.ytimg.com/vi/7yZXfK0FtN0/maxresdefault.jpg" alt="Estadio Ramón Sánchez-Pizjuán">
+               </article>
+               
+               </article>
+               <article class="team">
+                    <img src="https://www.smartfootball.es/wp-content/uploads/2023/01/rcd-espanyol-logo-escudo-1.png" alt="Escudo Espanyol">
+                    <div class="team-content">
+                         <h3>RCD Espanyol</h3>
+                         <p><strong>Estadio:</strong> RCDE Stadium</p>
+                         <p><strong>Entrenador:</strong> Luis García</p>
+                         <p><strong>Fundación:</strong> 1900</p>
+                    </div>
+                    <img src="https://images.prismic.io/acvnext/7f63b64b-6625-4416-ac52-813ca7cfba9c_testthomas_3d7ec33f-e5c6-4764-a6c6-21d759600389_power8.jpg?auto=compress,format" alt="Estadio RCD Espanyol">
+               </article>
+          
+
+               <article class="team">
+                    <img src="https://lh5.googleusercontent.com/proxy/uyx9sfXpBnD452XObQ2Us6ztXYKNu1h4yOarLDZOuHbSYEebzgT9QhzLdFQEGiBVSgIEcA1tQPUTDlpNZfKJJWdJWKwu-tLe4inxuqpFsDdFSvx6HZyEk_WB3y0yQtTjoKoTP8wPUH0Co7XuOcTyy6Vyj6RtkWw" alt="Escudo Leganés">
+                    <div class="team-content">
+                         <h3>CD Leganés</h3>
+                         <p><strong>Estadio:</strong> Butarque</p>
+                         <p><strong>Entrenador:</strong> Borja Jiménez</p>
+                         <p><strong>Fundación:</strong> 1928</p>
+                    </div>
+                    <img src="https://statics-maker.llt-services.com/leg/images/2023/06/13/xlarge/ed7f8495-bf29-4d8b-a756-fe60c62cc934.jpg" alt="Estadio Butarque">
+               </article>
+
+               <article class="team">
+                    <img src="https://lh6.googleusercontent.com/proxy/ogcrvPHjqDMkgUlGBFfyf16f8EQ4iqZbCJ1UIrUHAw1MHTax_eijL7R4YZpJH6_rK22S67WnTXus29RUGQ9AjjhQqvu5aZmvmjdaN2MG53tjRB9ytrcRCF6G22Cv8gSne7rnASiEmOrhrtf_G_S-aAWg0Js_6ksELA3U" alt="Escudo UD Las Palmas">
+                    <div class="team-content">
+                         <h3>UD Las Palmas</h3>
+                         <p><strong>Estadio:</strong> Gran Canaria</p>
+                         <p><strong>Entrenador:</strong> Luis Carrión</p>
+                         <p><strong>Fundación:</strong> 1949</p>
+                    </div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEJWsZT3PxCm7J3Y-qpHv8tIMNvQR4_kic0g&s" alt="Estadio Gran Canaria">
+               </article>     
+
+               <article class="team">
+                    <img src="https://bstadium.es/media/attachments/blobs/2024/11/19/39cua5MZ5H4nwcZKav6rGT_W23hPLuYFRxeAHudxV8bFt_Dise%C3%B1o_sin_t_34Z20lc.webp_3Ez1X2JBU1RmPgsYbKfkAvkMMDW.webp" alt="Escudo Real Valladolid">
+                    <div class="team-content">
+                         <h3>Real Valladolid</h3>
+                         <p><strong>Estadio:</strong> José Zorrilla</p>
+                         <p><strong>Entrenador:</strong> Paulo Pezzolano</p>
+                         <p><strong>Fundación:</strong> 1928</p>
+                    </div>
+                    <img src="https://www.fenwickiribarren.com/wp-content/uploads/2024/03/fia_real_valladolid_cf_02-640x363.jpg" alt="Estadio José Zorrilla">
+               </article>
+          </div>
+     </section>
+
+     <footer class="footer">
+          <p>&copy; 2024 Equipos de 1º División</p>
+     </footer>
+</body>
+</html>

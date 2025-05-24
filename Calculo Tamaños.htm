@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      text-align: left;
+      background-color: #ffffff;
+      padding: 20px;
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 375px;
+    }
+
+    .titulo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #00698f;
+        margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+        width: 50px;
+        height: 30px;
+        font-size: 18px;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+    }
+
+    input[type="number"]:focus {
+        border: 1px solid #00698f;
+        box-shadow: 0 0 5px rgba(0, 105, 143, 0.5);
+    }
+
+    p {
+        margin-bottom: 20px;
+        color: #666666;
+    }
+
+    #Superficie, #Volumen {
+        font-size: 18px;
+        font-weight: bold;
+        color: #00698f;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+    <h2 class="titulo">Cálculo de Superficie y Volumen</h2>
+    <p>Anchura (cm): <input type="number" id="inputAnchura" value="0" oninput="calcular()"></p>
+    <p>Profundidad (cm): <input type="number" id="inputProfundidad" value="0" oninput="calcular()"></p>
+    <p>Altura (cm): <input type="number" id="inputAltura" value="0" oninput="calcular()"></p>
+
+    <p id="Superficie">Superficie: 0 cm² (0 ft²)</p>
+    <p id="Volumen">Volumen: 0 cm³ (0 ft³)</p>
+    </div>
+
+    <script>
+    function calcular() {
+        const anchura = parseFloat(document.getElementById('inputAnchura').value);
+        const profundidad = parseFloat(document.getElementById('inputProfundidad').value);
+        const altura = parseFloat(document.getElementById('inputAltura').value);
+
+        if (isNaN(anchura) || isNaN(profundidad) || isNaN(altura)) {
+        return;
+        }
+
+        const superficie = anchura * profundidad;
+        const volumen = anchura * profundidad * altura;
+
+        const superficieEnPies = superficie * 0.00107639;  
+        const volumenEnPies = volumen * 0.0000353147;
+
+        document.getElementById("Superficie").innerText = 
+        `Superficie: ${superficie.toFixed(2)} cm² (${superficieEnPies.toFixed(2)} ft²)`;
+        document.getElementById("Volumen").innerText = 
+        `Volumen: ${volumen.toFixed(2)} cm³ (${volumenEnPies.toFixed(2)} ft³)`;
+    }
+
+    calcular();
+    </script>
+</body>
+</html>
