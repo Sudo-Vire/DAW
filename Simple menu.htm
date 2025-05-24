@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+     <head charset='UTF8'>
+          <script>
+               window.onload = function() {
+                    const cajas = [];
+                    const container = document.createElement('div');
+
+                    for (let i = 1; i <= 20; i++) {
+                         cajas.push('Caja ' + i);
+                    }
+
+                    cajas.forEach((caja, index) => {
+                         const div = document.createElement('div');
+                         div.textContent = caja;
+                         div.style.width = '130px';
+                         div.style.height = '50px';
+                         div.style.margin = '10px';
+                         div.style.float = 'left';
+                         div.style.textAlign = 'center';
+                         div.style.lineHeight = '50px';
+                         div.style.cursor = 'pointer';
+                         div.style.border = '1px solid #000';
+                         div.id = 'caja' + (index + 1);
+                         container.appendChild(div);
+
+                         div.addEventListener('click', function() {
+                              const textoArea = document.getElementById('texto');
+                              const texto = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis varius sodales diam. Morbi id posuere tortor, a semper libero. Praesent pulvinar metus quis lacinia elementum. Nullam pulvinar orci felis, in aliquam justo suscipit eget. Etiam ac metus ornare, cursus diam ac, malesuada elit. Morbi gravida ut risus ac imperdiet. Integer tellus enim, malesuada et condimentum et, lacinia quis dui. Integer libero lectus, elementum ac neque eu, eleifend fringilla urna. Maecenas eleifend, purus vel mollis tristique, ipsum tortor rutrum arcu, et dignissim est mi consectetur diam.Ut pulvinar sit amet metus ut pulvinar. Nunc auctor purus ac enim commodo vestibulum. Nulla placerat blandit purus at commodo. Aliquam mollis, erat eu ultrices placerat, libero dolor aliquam dolor, vitae euismod leo nibh non turpis. Ut at lacus a turpis suscipit eleifend in et libero. Nulla facilisi. Donec ultricies ex tellus, at efficitur sem accumsan et. Aenean fringilla, erat vitae maximus fringilla, ex diam vestibulum justo, eget molestie felis ligula eget eros. Aliquam volutpat lectus ac purus luctus lacinia. Curabitur scelerisque nec augue ut varius. Nulla aliquet mattis nisi, vitae bibendum ligula finibus in. Integer vel lectus porta, accumsan turpis ac, tristique felis. Aliquam eu risus in lorem sodales fringilla. Curabitur iaculis ligula non tellus gravida, vitae laoreet lacus pellentesque. Vestibulum lacinia ultrices sagittis. Maecenas egestas volutpat tempor. Curabitur id odio dui. Ut ultrices volutpat risus sed dictum. Sed tincidunt pretium venenatis. Pellentesque ut venenatis ipsum. Vestibulum ac odio felis. Nulla euismod aliquam dolor eu placerat. Donec arcu mi, venenatis vitae facilisis eu, tempor et arcu. Phasellus luctus eros elit, in tristique dolor auctor nec. Donec ut tellus iaculis, pellentesque nibh vitae, ornare mi. Etiam ut massa massa. Sed posuere ipsum in sapien rhoncus, non dictum urna pretium. Fusce tempor auctor nulla, ut mattis libero congue et. Etiam non leo velit. Sed semper feugiat dolor, ut varius metus dictum sed. Nulla sollicitudin ipsum quam, sit amet porta lacus congue a. Donec eu finibus quam, sit amet dapibus odio. Vestibulum interdum, lacus sit amet tincidunt condimentum, lectus sapien vulputate lacus, eu elementum diam ante in nibh. Nullam nunc orci, mollis nec elit at, pulvinar rhoncus est. Duis id ultricies purus. Vivamus sit amet massa quis ligula malesuada pretium eget vel arcu. Aenean non tellus a orci consectetur imperdiet sed quis elit. Ut molestie, eros in egestas varius, nisl mi venenatis ligula, vitae eleifend nunc neque a ex. Phasellus accumsan tempor finibus. Duis et tortor eleifend, viverra felis ac, finibus mauris. Sed sagittis facilisis felis. Nam ipsum ante, convallis eget condimentum eget, congue non nisi. Morbi luctus elit ac nisi molestie posuere ut pretium velit. Nullam lobortis elit id lacus efficitur tempus. Phasellus sit amet felis ac dolor tempor auctor vel eu ipsum. Ut euismod, risus sed elementum consectetur, nulla velit imperdiet eros, at tempus velit orci id sapien.';
+
+                              const startIndex = Math.floor(Math.random() * (texto.length - 100));
+                              textoArea.value = texto.substring(startIndex, startIndex + 100);
+                         });
+                    });
+
+                    document.body.appendChild(container);
+
+                    const textoArea = document.createElement('textarea');
+                    textoArea.id = 'texto';
+                    textoArea.readOnly = true;
+                    textoArea.value = 'Texto por defecto';
+                    textoArea.style.display = 'block';
+                    textoArea.style.marginTop = '20px';
+                    textoArea.style.padding = '10px';
+                    textoArea.style.width = '100%';
+                    textoArea.style.height = '100px';
+                    textoArea.style.border = '1px solid #ccc';
+                    textoArea.style.borderRadius = '5px';
+                    document.body.appendChild(textoArea);
+               };
+          </script>
+     </head>
+     <body>
+     </body>
+</html>

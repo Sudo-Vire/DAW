@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Paginador Dinámico</title>
+    <style>
+      body {
+        text-align: center;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+      }
+
+      .header, .footer, .container {
+        background-color: #ddd;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .header, .footer {
+        border: 10px solid #757575;
+      }
+
+      .header {
+        display: block;
+        width: 94%;
+        background-color: #ddd;
+        background-size: cover;
+        color: white;
+        margin-left: 3%;
+        margin-right: 3%;
+      }
+
+      .container {
+        border-left: 10px solid #757575;
+        border-right: 10px solid #757575;
+      }
+
+      .container-wrapper {
+        display: flex;
+        margin-left: 3%;
+        margin-right: 3%;
+      }
+
+      .containerizqd {
+        width: 60px;
+        background-color: #ddd;
+        border-left: 10px solid #757575;
+        border-bottom: 10px solid #757575;
+        display: grid;
+        place-items: center;
+      }
+
+      .caja {
+        width: 40px;
+        height: 40px;
+        border: 1px solid black;
+      }
+
+      .c1 {
+        background-color: #69a3b2;
+      }
+
+      .c2 {
+        background-color: #ffb078;
+      }
+
+      .c3 {
+        background-color: #0dc09a;
+      }
+
+      .c4 {
+        background-color: #bbd8e6;
+      }
+
+      .c5 {
+        background-color: #f2f2f2;
+      }
+
+      .c6 {
+        background-color: #757575;
+      }
+
+      .containerdrch {
+        width: 100%;
+        background-color: #DDDDDD;
+      }
+
+      .elementos1, .elementos2 {
+        width: 85%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0 auto 20px auto;
+      }
+
+      .elemento1, .elemento2, .elemento3 {
+        margin: 5px 0 5px 0;
+        align-items: center;
+        text-align: center;
+        border: 1px solid black;
+      }
+
+      .elemento1 {
+        width: 25px;
+        height: 150px;
+        font-size: 20px;
+        margin: 5px;
+      }
+
+      .elemento2, .elemento3 {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-color: white;
+      }
+
+      .footer {
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Tenemos <span id="total-elementos"></span> elementos y 10 por página</h1>
+    </div>
+    <div class="container-wrapper">
+      <div class="containerizqd">
+        <div class="caja c1"></div>
+        <div class="caja c2"></div>
+        <div class="caja c3"></div>
+        <div class="caja c4"></div>
+        <div class="caja c5"></div>
+        <div class="caja c6"></div>
+      </div>
+      <div class="containerdrch">
+        <div class="container">
+          <div class="elementos1" id="elementos1"></div>
+          <div class="elementos2" id="elementos2"></div>
+        </div>
+        <div class="footer">
+          <p>@ todos los derechos no reservados</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const colores = ["#69a3b2", "#ffb078", "#0dc09a", "#bbd8e6", "#f2f2f2", "#757575"];
+      const elementos = Array.from({ length: Math.floor(Math.random() * 100) + 1 }, (_, i) => ({
+        id: i + 1,
+        color: colores[Math.floor(Math.random() * colores.length)],
+      }));
+
+      document.getElementById("total-elementos").textContent = elementos.length;
+
+      let paginaActual = 1;
+      let colorFiltro = null;
+
+      function mostrarElementos() {
+        const elementos1Container = document.getElementById("elementos1");
+        elementos1Container.innerHTML = "";
+
+        const elementosFiltrados = colorFiltro
+          ? elementos.filter(el => el.color === colorFiltro)
+          : elementos;
+
+        const elementosPorPagina = paginaActual === -1 ? elementosFiltrados.length : 10;
+        const inicio = (paginaActual === -1 ? 0 : (paginaActual - 1) * 10);
+        const elementosPagina = elementosFiltrados.slice(inicio, inicio + elementosPorPagina);
+
+        elementosPagina.forEach(el => {
+          const div = document.createElement("div");
+          div.className = "elemento1";
+          div.textContent = el.id;
+          div.style.backgroundColor = el.color;
+          elementos1Container.appendChild(div);
+        });
+
+        crearPaginacion(elementosFiltrados.length);
+      }
+
+      function crearPaginacion(totalElementos) {
+        const elementos2Container = document.getElementById("elementos2");
+        elementos2Container.innerHTML = "";
+        const totalPaginas = Math.ceil(totalElementos / 10);
+
+        const divGuion = document.createElement("div");
+        divGuion.className = "elemento2";
+        divGuion.textContent = "-";
+        divGuion.addEventListener("click", () => {
+          colorFiltro = null; 
+          paginaActual = -1; 
+          mostrarElementos(); 
+        });
+        elementos2Container.appendChild(divGuion);
+
+        for (let i = 1; i <= totalPaginas; i++) {
+          const div = document.createElement("div");
+          div.className = "elemento2";
+          div.textContent = i;
+          div.addEventListener("click", () => {
+            paginaActual = i;
+            mostrarElementos();
+          });
+          elementos2Container.appendChild(div);
+        }
+      }
+
+      document.querySelectorAll(".caja").forEach((caja, index) => {
+        caja.addEventListener("click", () => {
+          colorFiltro = colores[index];
+          paginaActual = 1;
+          mostrarElementos();
+        });
+      });
+
+      mostrarElementos();
+    </script>
+  </body>
+</html>
+

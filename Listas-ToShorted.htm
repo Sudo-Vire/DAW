@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Listas 3 - tosorted</title>
+    <style>
+        .container {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .item {
+            margin: 5px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="content"></div>
+
+    <script>
+        function generarColorAleatorio() {
+            return 'rgb(' 
+            + Math.floor(Math.random() * 256) + ', '
+            + Math.floor(Math.random() * 256) + ', ' 
+            + Math.floor(Math.random() * 256) + ')';
+        }
+
+        function generarLista(cantidad) {
+            return Array.from({ length: cantidad }, function() {
+                return {
+                    alto: [50, 70, 90][Math.floor(Math.random() * 3)],
+                    ancho: [40, 60][Math.floor(Math.random() * 2)],
+                    color: generarColorAleatorio(),
+                    texto: 'ABCDEFGHIJKL'[Math.floor(Math.random() * 12)],
+                    nivel: ['a', 'b', 'c'][Math.floor(Math.random() * 3)],
+                    version: Math.floor(Math.random() * 10),
+                };
+            });
+        }
+
+        function mostrarDivs(titulo, array) {
+            var container = document.createElement('div');
+            container.className = 'container';
+            var header = document.createElement('h3');
+            header.textContent = titulo;
+            container.appendChild(header);
+
+            array.forEach(function(obj) {
+                var div = document.createElement('div');
+                div.className = 'item';
+                div.style.height = obj.alto + 'px';
+                div.style.width = obj.ancho + 'px';
+                div.style.backgroundColor = obj.color;
+                div.textContent = obj.texto + ' (' + obj.version + ')';
+                container.appendChild(div);
+            });
+
+            document.getElementById('content').appendChild(container);
+        }
+
+        function calcularSumaVersiones(array) {
+            return array.reduce(function(acc, obj) {
+                return acc + obj.version;
+            }, 0);
+        }
+
+        var lista = generarLista(30);
+
+        mostrarDivs('Listado en orden del índice del array', lista);
+        mostrarDivs('Ordenado ascendente por versión', lista.toSorted(function(a, b) {return a.version - b.version;}));
+        mostrarDivs('Ordenado descendente por versión', lista.toSorted(function(a, b) {return b.version - a.version;}));
+        mostrarDivs('Filtrado por versión de 0 a 5', lista.filter(function(obj) {return obj.version >= 0 && obj.version <= 5;}));
+
+        var sumaVersiones = calcularSumaVersiones(lista);
+        var sumaDiv = document.createElement('div');
+        sumaDiv.className = 'container';
+        sumaDiv.textContent = 'Suma de las versiones: ' + sumaVersiones;
+        document.getElementById('content').appendChild(sumaDiv);
+    </script>
+</body>
+</html>

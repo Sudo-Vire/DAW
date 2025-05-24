@@ -1,0 +1,167 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Galería de Efectos de Imágenes</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            text-align: center;
+            padding: 32px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 4px;
+            justify-content: center;
+        }
+        .row > div {
+            flex: 40%;
+            max-width: 40%;
+            padding: 8px;
+        }
+        .row img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            margin-top: 8px;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Responsive */
+        @media (max-width: 800px) {
+            .row > div {
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+        @media (max-width: 600px) {
+            .row > div {
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+
+        .rounded:hover {
+            transition: all 0.5s;
+            border-radius: 50%;
+        }
+
+        .thumbnail {
+            border: 2px solid #ddd;
+            padding: 4px;
+        }
+        .thumbnail:hover {
+            transition: transform 0.5s;
+            transform: scale(1.1);
+        }
+
+        .polaroid {
+            padding: 10px;
+            background: white;
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .transparent {
+            opacity: 0.6;
+        }
+        .transparent:hover {
+            transition: opacity 0.5s;
+            opacity: 1;
+        }
+
+        .image-text {
+            position: relative;
+        }
+        .image-text img {
+            width: 100%;
+        }
+        .image-text p {
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+        }
+
+        .filter {
+            filter: grayscale(80%);
+        }
+        .filter:hover {
+            transition: filter 0.5s;
+            filter: grayscale(0%);
+        }
+
+        .sepia {
+            filter: sepia(80%);
+        }
+        .sepia:hover {
+            transition: filter 0.5s;
+            filter: sepia(0%);
+        }
+
+        .flip {
+            perspective: 1000px;
+        }
+        .flip img {
+            transition: transform 0.5s;
+        }
+        .flip:hover img {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Galería de Efectos de Imágenes</h1>
+        <p>Prueba diferentes efectos en las imágenes al hacer hover.</p>
+    </div>
+
+    <div class="row">
+        <div>
+            <img src="https://i.pinimg.com/736x/b9/c5/cf/b9c5cfac1b39fe3978478881a34ef25c.jpg" class="rounded" alt="Rounded">
+        </div>
+
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/960px-Pokebola-pokeball-png-0.png" class="thumbnail" alt="Thumbnail">
+        </div>
+
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Userbox_creeper.svg/1200px-Userbox_creeper.svg.png" class="sepia" alt="Sepia">
+        </div>
+
+        <div class="polaroid">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Umbrella_Corporation_logo.svg/2048px-Umbrella_Corporation_logo.svg.png" alt="Polaroid">
+            <p>Resident Evil</p>
+        </div>
+
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Orange_lambda.svg/800px-Orange_lambda.svg.png" class="transparent" alt="Transparent">
+        </div>
+
+        <div class="image-text">
+            <img src="https://mrwallpaper.com/images/thumbnail/angry-birds-red-character-99zpdjzvotmax31g.webp" alt="Image with Text">
+            <p>Angry birds</p>
+        </div>
+
+        <div>
+            <img src="https://i.pinimg.com/1200x/45/07/52/450752e81471f59733866c8216378d35.jpg" class="filter" alt="Filtered">
+        </div>
+
+        <div class="flip">
+            <img src="https://static.wikia.nocookie.net/mario/images/2/24/Champi%C3%B1%C3%B3n.png/revision/latest?cb=20100909154147&path-prefix=es" alt="Flipped">
+        </div>
+    </div>
+</body>
+</html>
+
