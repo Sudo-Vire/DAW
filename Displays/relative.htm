@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <style>
+     .flex-container {
+          height: 500px;
+          display: flex;
+          background-color: rgb(255, 200, 50);
+     }
+     .flex-container > div {
+          width: 100px;
+          height: 100px;
+          background-color: #0050ff;
+          border: 1px black solid;
+          margin: 10px;
+          padding: 20px;
+          font-size: 30px;
+          position: relative;
+     }
+     .arriba{
+          top: 50px;
+     }
+     .abajo{
+          bottom: 50px;
+     }
+     .izquierda{
+          left: 50px;
+     }
+     .derecha{
+          right: 50px;
+     }
+     </style>
+</head>
+<body>
+
+<h1>Create a Flex Container</h1>
+
+<div class="flex-container">
+     <div class="arriba">1</div>
+     <div class="abajo">2</div>
+     <div class="izquierda">3</div>
+     <div class="derecha">4</div>
+</div>
+
+<p>A Flexible Layout must have a parent element with the <em>display</em> property set to <em>flex</em>.</p>
+
+<p>Direct child elements(s) of the flexible container automatically becomes flexible items.</p>
+
+</body>
+</html>
