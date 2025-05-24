@@ -3,12 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <title>Dibujar Graficas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        #mainContainer {
+            width: 80%;
+            padding: 20px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 800px; /* establece un máximo de ancho */
+            min-height: 600px; /* establece un máximo de alto */
+            overflow: auto;
+        }
+
+        #titulo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #graficaCanvas {
+            border: 1px solid #000000;
+            margin-bottom: 20px;
+        }
+
+        #inputsContainer {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        #inputFormula, #inputEscala {
+            width: 200px;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+
+        #botonDibujar {
+            width: 200px;
+            height: 60px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: 1px solid #cccccc;
+            cursor: pointer;
+        }
+
+        #botonDibujar:hover {
+            background-color: #3e8e41;
+        }
+
+        @media (max-width: 800px) {
+            #mainContainer {
+                min-width: 80%; 
+            }
+
+            #inputFormula, #inputEscala, #botonDibujar {
+                width: 33%; 
+            }
+
+            #graficaCanvas {
+                width: 80%; 
+            }
+        }
+    </style>
     <script>
         window.onload = function() {
             const mainContainer = document.createElement('div');
+            mainContainer.id = 'mainContainer';
             document.body.appendChild(mainContainer);
 
             const titulo = document.createElement('h1');
+            titulo.id = 'titulo';
             titulo.textContent = "Dibujar gráficas";
             mainContainer.appendChild(titulo);
 
@@ -16,45 +98,29 @@
             canvas.id = 'graficaCanvas';
             canvas.width = 500;
             canvas.height = 500;
-            canvas.style.border = '1px solid #000000';
             mainContainer.appendChild(canvas);
 
-            const container = document.createElement('div');
-            container.style.position = 'absolute';
-            container.style.top = '80px';
-            container.style.right = '210px'; 
-            container.style.display = 'flex';
-            container.style.flexDirection = 'column';
-            document.body.appendChild(container);
+            const inputsContainer = document.createElement('div');
+            inputsContainer.id = 'inputsContainer';
+            mainContainer.appendChild(inputsContainer);
 
             const inputFormula = document.createElement('input');
-            inputFormula.type = 'text';
             inputFormula.id = 'inputFormula';
+            inputFormula.type = 'text';
             inputFormula.value = 'x+3';
-            inputFormula.style.marginBottom = '10px';
-            inputFormula.style.height = '40px';
-            inputFormula.style.borderRadius = '5px';
-            inputFormula.style.borderWidth = '1px';
-            container.appendChild(inputFormula);
+            inputsContainer.appendChild(inputFormula);
 
             const inputEscala = document.createElement('input');
-            inputEscala.type = 'number';
             inputEscala.id = 'inputEscala';
+            inputEscala.type = 'number';
             inputEscala.value = '100';
-            inputEscala.style.marginBottom = '10px';
-            inputEscala.style.height = '40px';
-            inputEscala.style.borderRadius = '5px';
-            inputEscala.style.borderWidth = '1px';
-            container.appendChild(inputEscala);
+            inputsContainer.appendChild(inputEscala);
 
             const botonDibujar = document.createElement('input');
+            botonDibujar.id = 'botonDibujar';
             botonDibujar.type = 'button';
             botonDibujar.value = 'Dibujar';
-            botonDibujar.onclick = dibujarGrafica;
-            botonDibujar.style.height = '40px';
-            botonDibujar.style.borderRadius = '5px';
-            botonDibujar.style.borderWidth = '1px';
-            container.appendChild(botonDibujar);
+            inputsContainer.appendChild(botonDibujar);
 
             function dibujarGrafica() {
                 const formula = document.getElementById('inputFormula').value || 'x+3';
@@ -136,6 +202,4 @@
         }
     </script>
 </head>
-<body>
-</body>
 </html>
