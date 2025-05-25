@@ -9,21 +9,18 @@ if (isset($_POST['reset'])) {
     header('Location: ' . $_SERVER['PHP_SELF']);
     exit;
 }
-
 $numeroSecreto = isset($_COOKIE['numero_secreto']) ? (int)$_COOKIE['numero_secreto'] : rand(1, 100);
 $intentos = isset($_COOKIE['intentos']) ? (int)$_COOKIE['intentos'] : 0;
 $intentosTotales = isset($_COOKIE['intentos_totales']) ? (int)$_COOKIE['intentos_totales'] : 0;
 $puntos = isset($_COOKIE['puntos']) ? (int)$_COOKIE['puntos'] : 0;
 $min = isset($_COOKIE['min_actual']) ? (int)$_COOKIE['min_actual'] : 1;
 $max = isset($_COOKIE['max_actual']) ? (int)$_COOKIE['max_actual'] : 100;
-
 if (isset($_POST['numero'])) {
     $numeroIngresado = (int)$_POST['numero'];
     $intentos++;
     $intentosTotales++;
     setcookie('intentos', $intentos, time() + 3600*24*30);
     setcookie('intentos_totales', $intentosTotales, time() + 3600*24*30);
-
     if ($numeroIngresado === $numeroSecreto) {
         $puntos++;
         setcookie('puntos', $puntos, time() + 3600*24*30);
@@ -48,7 +45,5 @@ if (isset($_POST['numero'])) {
 } else {
     $mensaje = "Introduce un número para empezar a jugar.";
 }
-
 $media_intentos = ($puntos > 0) ? number_format($intentosTotales / $puntos, 2) : '-';
-
 include 'NS.html';

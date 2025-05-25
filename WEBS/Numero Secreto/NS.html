@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Adivinanza Mejorado</title>
+    <link rel="stylesheet" href="NS.css">
+</head>
+<body>
+<div class="container">
+    <h1>¡Adivina el Número!</h1>
+    <div class="intervalo">
+        Intervalo posible: <strong><?= $min ?></strong> a <strong><?= $max ?></strong>
+    </div>
+    <form method="post" action="NS.php">
+        <input type="number" name="numero" id="numero" min="1" max="100" required placeholder="Escribe tu número">
+        <div>
+            <button type="submit">Enviar</button>
+            <button type="submit" name="reset">Reiniciar</button>
+        </div>
+    </form>
+    <p style="min-height:3em"><strong>Mensaje:</strong> <?= htmlspecialchars($mensaje) ?></p>
+    <div class="stats">
+        <p><strong>Intentos:</strong> <?= $intentos ?></p>
+        <p><strong>Intentos totales:</strong> <?= $intentosTotales ?></p>
+        <p><strong>Media de intentos:</strong> <?= $media_intentos ?></p>
+        <p><strong>Puntos:</strong> <?= $puntos ?></p>
+    </div>
+</div>
+</body>
+</html>
