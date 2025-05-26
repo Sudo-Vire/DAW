@@ -4,16 +4,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $g = isset($_POST["g"]) ? intval($_POST["g"]) : 0;
     $b = isset($_POST["b"]) ? intval($_POST["b"]) : 0;
 
-    // Asegurar valores entre 0 y 255
     $r = max(0, min(255, $r));
     $g = max(0, min(255, $g));
     $b = max(0, min(255, $b));
 
-    // Convertir a formato hexadecimal
     $hexColor = sprintf("%02X%02X%02X", $r, $g, $b);
 
     echo $hexColor;
-    exit; // Evitar contenido adicional en la respuesta AJAX
+    exit;
 }
 ?>
 
@@ -93,7 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             document.getElementById("colorGreen").style.backgroundColor = `rgb(0,${g},0)`;
             document.getElementById("colorBlue").style.backgroundColor = `rgb(0,0,${b})`;
 
-            // Enviar datos al servidor con AJAX
             let xhr = new XMLHttpRequest();
             xhr.open("POST", "", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
