@@ -19,4 +19,10 @@ function calcular() {
         `Volumen: ${volumen.toFixed(2)} cm³ (${volumenEnPies.toFixed(2)} ft³)`;
 }
 
-calcular();
+window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('inputAnchura').addEventListener('input', calcular);
+    document.getElementById('inputProfundidad').addEventListener('input', calcular);
+    document.getElementById('inputAltura').addEventListener('input', calcular);
+
+    calcular(); 
+});
