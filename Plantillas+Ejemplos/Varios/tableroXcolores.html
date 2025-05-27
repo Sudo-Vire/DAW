@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tableroXcolores</title>
+    <script>
+        window.onload = function () {
+            for (let j = 1; j < 9; j++) {
+                var padre = document.body;
+                padre.style.width = '0px';
+                var contenedor = creaNodo(padre, '', 'contenedor' + j, 'div', ''); // contenedor de los cajas de colores
+                contenedor.style.textAlign = 'center';
+                contenedor.style.float = 'left';
+                contenedor.style.width = '1100px';
+                for (let n = 1; n < 9; n++) {
+                    let clase = 'cajichuela';
+                    var ele = creaNodo(contenedor, 'C' + n + j, 'caja' + n + j, 'div', clase);// crear nodo
+                    estiloCaja(ele);
+                    if (j == 8 && n == 8) {
+                        ele.addEventListener('click', cambiarTodo);
+                        ele.addEventListener('mouseover', cambiarColor);
+                    } else {
+                        ele.addEventListener('click', clickCaja);
+                        ele.addEventListener('mouseover', cambiarColor);
+                    }
+                }
+
+            }
+        }
+
+        function cambiarTodo() {
+            for (let j = 1; j < 9; j++) {
+                for (let n = 1; n < 9; n++) {
+                    var ele = document.getElementById('caja' + n + j)
+                    ele.innerHTML = hexToRGBDecimal(ele.innerHTML);
+                }
+            }
+        }
+
+        function hexToRGBDecimal(hex) {
+            if (hex.length<7) {
+                let r = parseInt(hex.substring(0, 2), 16);
+                let g = parseInt(hex.substring(2, 4), 16);
+                let b = parseInt(hex.substring(4, 6), 16);
+                return r + ', ' + g + ', ' + b;
+            } else {
+                return DecimalRGBtoHex(hex);
+            }
+        }
+        function DecimalRGBtoHex(dec) {
+            let rgb = dec.split(',');
+            let R = parseInt(rgb[0]).toString(16).padStart(2, '0').toUpperCase();
+            let G = parseInt(rgb[1]).toString(16).padStart(2, '0').toUpperCase();
+            let B = parseInt(rgb[2]).toString(16).padStart(2, '0').toUpperCase();
+            return R + G + B;
+        }
+
+        function estiloCaja(p) {
+            p.style.textAlign = 'center';
+            p.style.display = 'flex';
+            p.style.justifyContent = 'center';
+            p.style.alignItems = 'center';
+            p.style.height = '100px';
+            p.style.width = '100px';
+            p.style.border = '1px solid black';
+            p.style.float = 'left';
+            colorAleatorio(p);
+            p.style.fontSize = '0.8em';
+        }
+
+        function clickCaja() {
+            this.innerHTML = this.id;
+        }
+
+        function colorAleatorio(p) {
+            const caracteres = '0123456789ABCDEF';
+            let color = '';
+            for (let i = 0; i < 6; i++) {
+                const aleatorio = generaNumeroAleatorio(0, caracteres.length - 1);
+                color += caracteres.charAt(aleatorio);
+            }
+            p.style.backgroundColor = '#' + color;
+            p.innerHTML = color;
+            return color;
+        }
+        function generaNumeroAleatorio(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function cambiarColor() {
+            var color = colorAleatorio(this);
+        }
+
+        function creaNodo(ancestro, texto, id, tipo, clase) {
+            var p = document.createElement(tipo);
+            var contenido = document.createTextNode(texto);
+            p.n = id
+            p.id = id;
+            p.className = clase;
+            p.appendChild(contenido);
+            ancestro.appendChild(p);
+            return p;
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Globos Moviles</title>
+    </head>
+    <body>
+        <script>
+            let sonidog = new Audio("./collect-ring-15982.mp3");
+            let sonidow = new Audio("./ssstik.io_1738173638204.mp3");
+            document.body.style.height = "100%";
+            document.body.style.display = "flex";
+            document.body.style.flexDirection = "column";
+            document.body.style.justifyContent = "center"; 
+            document.body.style.alignItems = "center";
+            document.body.style.margin = "0";
+
+            const contenedor = document.createElement("div");
+            contenedor.style.width = "90%";
+            contenedor.style.height = "850px";
+            contenedor.style.padding = "20px";
+            contenedor.style.border = "solid 3px black";
+            contenedor.style.backgroundColor = "white"; 
+            contenedor.style.position = "relative"; 
+            document.body.appendChild(contenedor);
+
+            const intervalos = [];
+            let eliminadas = 0; 
+            let tiempoInicio = null;  
+            let tiempoFinal = null;  
+            let tiempoContador = document.createElement("div"); 
+            let puntuacion = document.createElement("div");  
+
+            const cajaContadores = document.createElement("div");
+            cajaContadores.style.display = "flex";
+            cajaContadores.style.alignItems = "center";
+            cajaContadores.style.height = "40px"; 
+            puntuacion.style.fontSize = "20px";
+            puntuacion.textContent = "Puntuación: 0";
+            tiempoContador.style.fontSize = "20px";
+            tiempoContador.textContent = ".....Tiempo: 0s";
+            cajaContadores.appendChild(puntuacion);
+            cajaContadores.appendChild(tiempoContador);
+            document.body.appendChild(cajaContadores);
+
+            function CrearBurbuja() {
+                let maxDim = 150;
+                let minDim = 50;
+                let maxColor = 255;
+                let minColor = 0;
+
+                const dim = Math.floor(Math.random() * (maxDim - minDim + 1)) + minDim;
+                const burbuja = document.createElement("div");
+                burbuja.style.borderRadius = "100%";
+                burbuja.style.position = "absolute";
+                burbuja.style.border = "solid 3px rgb(" + 
+                    Math.floor(Math.random() * (maxColor - minColor + 1)) + "," + 
+                    Math.floor(Math.random() * (maxColor - minColor + 1)) + "," + 
+                    Math.floor(Math.random() * (maxColor - minColor + 1)) + ")";
+                burbuja.style.backgroundColor = "rgb(" + 
+                    Math.floor(Math.random() * (maxColor - minColor + 1)) + "," + 
+                    Math.floor(Math.random() * (maxColor - minColor + 1)) + "," + 
+                    Math.floor(Math.random() * (maxColor - minColor + 1)) + ")";
+                burbuja.style.width = dim + "px";
+                burbuja.style.height = dim + "px";
+                const maxLeft = contenedor.clientWidth - dim;
+                const maxTop = contenedor.clientHeight - dim;
+                burbuja.style.left = Math.random() * maxLeft + "px";
+                burbuja.style.top = Math.random() * maxTop + "px";
+                burbuja.style.transition = "left 1s ease-in-out, top 1s ease-in-out";
+
+                burbuja.addEventListener("mouseover", () => {
+                    burbuja.style.backgroundColor = "white";
+                });
+
+                burbuja.addEventListener("mouseout", () => {
+                    burbuja.style.backgroundColor = "rgb(" + 
+                        Math.floor(Math.random() * (maxColor - minColor + 1)) + "," + 
+                        Math.floor(Math.random() * (maxColor - minColor + 1)) + "," + 
+                        Math.floor(Math.random() * (maxColor - minColor + 1)) + ")";
+                });
+
+                burbuja.addEventListener("click", () => {
+                    burbuja.remove();
+                    sonidog.play(); 
+                    eliminadas++;  
+                    puntuacion.textContent = "Puntuación: " + eliminadas; 
+
+                    if (eliminadas === 25) {  
+                        sonidow.play(); 
+                        tiempoFinal = new Date();  
+                        const tiempoTotal = Math.floor((tiempoFinal - tiempoInicio) / 1000);  
+                        alert("¡Felicidades! Has eliminado todas las burbujas en " + tiempoTotal + " segundos.");
+                    }
+                });
+
+                contenedor.appendChild(burbuja);
+
+                const intervalo = setInterval(() => {
+                    const newLeft = Math.random() * maxLeft;
+                    const newTop = Math.random() * maxTop;
+                    burbuja.style.left = newLeft + "px";
+                    burbuja.style.top = newTop + "px";
+                }, Math.random() * 2000 + 1000); 
+
+                intervalos.push(intervalo);
+            }
+
+            tiempoInicio = new Date();
+
+            for (let i = 1; i <= 25; i++) {
+                CrearBurbuja();
+            }
+
+            setInterval(() => {
+                if (eliminadas < 25) {
+                    const tiempoTranscurrido = Math.floor((new Date() - tiempoInicio) / 1000);
+                    tiempoContador.textContent = ".....Tiempo: " + tiempoTranscurrido + "s";
+                }
+            }, 1000);
+
+            const boton = document.createElement("button");
+            boton.textContent = "Parar";
+            boton.style.marginTop = "20px";
+            boton.style.padding = "10px 20px";
+            boton.style.border = "solid 1px black";
+            boton.style.backgroundColor = "#DDDDDD";
+            boton.style.cursor = "pointer";
+            document.body.appendChild(boton);
+            cajaContadores.appendChild(puntuacion);
+            cajaContadores.appendChild(tiempoContador);
+            document.body.appendChild(cajaContadores);
+
+            boton.addEventListener("click", () => {
+                intervalos.forEach((intervalo) => clearInterval(intervalo));
+            });
+        </script>
+    </body>
+</html>

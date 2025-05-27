@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DIV Centrado con Botones</title>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Crear div principal
+        const container = document.createElement('div');
+        container.style.width = '95%';
+        container.style.margin = '0 auto';
+        container.style.textAlign = 'center';
+
+        // Crear div info
+        const infoDiv = document.createElement('div');
+        infoDiv.id = 'infoDiv';
+        infoDiv.style.width = '100%';
+        infoDiv.style.height = '50px';
+        infoDiv.style.border = '1px solid black';
+        infoDiv.style.marginBottom = '10px';
+        infoDiv.style.display = 'flex';
+        infoDiv.style.justifyContent = 'center';
+        infoDiv.style.alignItems = 'center';
+        infoDiv.style.fontSize = '18px';
+        infoDiv.textContent = 'Pasa el ratón sobre un botón para ver la información aquí';
+        container.appendChild(infoDiv);
+
+        // Crear div botones
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.id = 'buttonsDiv';
+        buttonsDiv.style.display = 'grid';
+        buttonsDiv.style.gridTemplateColumns = 'repeat(10, 1fr)';
+        buttonsDiv.style.gap = '5px';
+        buttonsDiv.style.width = '100%';
+        for (let i = 1; i <= 10; i++) {
+            for (let j = 1; j <= 10; j++) {
+                const paddedI = i.toString().padStart(2, '0'); 
+                const paddedJ = j.toString().padStart(2, '0'); 
+                const buttonId = `B${paddedI}${paddedJ}`;
+
+                const button = document.createElement('button');
+                button.style.padding = '10px';
+                button.style.backgroundColor = '#007bff';
+                button.style.color = 'white';
+                button.style.border = 'none';
+                button.style.borderRadius = '5px';
+                button.style.cursor = 'pointer';
+                button.textContent = `${buttonId}`;
+
+                button.addEventListener('mouseenter', (e) => {
+                    const InfoBoton = `ID del botón: ${buttonId}, Columna: ${i}, Fila: ${j}, x: ${e.clientX}, y: ${e.clientY}`;
+                    infoDiv.textContent = InfoBoton;
+                });
+
+                button.addEventListener('mouseout', (o) => {
+                    const InfoBoton = `Pasa el ratón sobre un botón para ver la información aquí, x: ${o.clientX}, y: ${o.clientY}`;
+                    infoDiv.textContent = InfoBoton;
+                });
+
+                buttonsDiv.appendChild(button);
+            }
+        }
+
+        container.appendChild(buttonsDiv);
+        document.body.appendChild(container);
+    });
+</script>
+<body>
+</body>
+</html>
