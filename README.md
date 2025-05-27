@@ -11,7 +11,7 @@ Este repositorio contiene una recopilación de ejercicios realizados durante el 
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Lenguajes Utilizados
 
 - 🧱 **HTML** – Estructuración de contenido web.
 - 🎨 **CSS** – Estilización y diseño de páginas web.
