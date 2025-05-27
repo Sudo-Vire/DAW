@@ -4,16 +4,16 @@ Este repositorio contiene una recopilación de ejercicios realizados durante el 
 
 ## 📁 Estructura del Repositorio
 
-- **Plantillas+Ejemplos**: Contiene plantillas básicas y ejemplos ilustrativos de código.
-- **WEBS**: Incluye proyectos web completos desarrollados como parte de las prácticas del curso.:contentReference[oaicite:22]{index=22}
+- **Plantillas+Ejemplos**: Plantillas básicas y ejemplos ilustrativos de código.
+- **WEBS**: Proyectos web completos desarrollados como parte de las prácticas del curso.
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **HTML**: :contentReference[oaicite:24]{index=24}
-- **CSS**: :contentReference[oaicite:27]{index=27}
-- **JavaScript**: :contentReference[oaicite:30]{index=30}
-- **PHP**: :contentReference[oaicite:33]{index=33}
-- **Shell**: :contentReference[oaicite:36]{index=36}:contentReference[oaicite:38]{index=38}
+- 🧱 **HTML** – Estructuración de contenido web.
+- 🎨 **CSS** – Estilización y diseño de páginas web.
+- 🧠 **JavaScript** – Interactividad y funcionalidades dinámicas.
+- 🐘 **PHP** – Desarrollo del lado del servidor.
+- 🐚 **Shell** – Scripts de automatización y configuración.
 
 ## 🔍 Objetivo
 
@@ -21,13 +21,8 @@ El propósito de este repositorio es servir como referencia y material de estudi
 
 ## 📄 Licencia
 
-Este proyecto se encuentra bajo la licencia [MIT](LICENSE), lo que permite su uso, modificación y distribución con fines educativos y personales.
+Este proyecto se encuentra bajo la licencia [MIT](LICENSE), lo que permite su uso, modificación y distribución con fines educativos y personales pero no comerciales.
 
 ## 🙋‍♂️ Autor
 
-- **Sudo-Vire**: :contentReference[oaicite:40]{index=40}:contentReference[oaicite:42]{index=42}
-
----
-
-:contentReference[oaicite:44]{index=44}:contentReference[oaicite:46]{index=46}
-
+- **Sudo-Vire**: [Perfil de GitHub](https://github.com/Sudo-Vire)
