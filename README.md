@@ -21,7 +21,7 @@ El propósito de este repositorio es servir como referencia y material de estudi
 
 ## 📄 Licencia
 
-Este proyecto se encuentra bajo la licencia [CC BY-NC:](LICENSE), lo que permite su uso, modificación y distribución con fines educativos y personales pero no comerciales.
+Este proyecto se encuentra bajo la licencia [CC BY-NC](LICENSE), lo que permite su uso, modificación y distribución con fines educativos y personales pero no comerciales.
 
 ## 🙋‍♂️ Autor
 
